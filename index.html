@@ -50,11 +50,11 @@
     <section id="story" class="story-section">
         <div class="container">
             <div class="story-container">
-                <div class="story-image fade-in">
+                <div class="story-image reveal reveal-left">
                     <img src="images/profile.jpg" alt="Manushree Rao">
                 </div>
 
-                <div class="story-content fade-in delay-1">
+                <div class="story-content reveal reveal-right">
                     <h2>From "Impossible" to <br><em>Profession.</em></h2>
 
                     <div class="quote-box">
@@ -74,7 +74,7 @@
                             a fun, fulfilling business.</p>
 
                         <p>I joined LinkedIn only a few months ago, and I’ve genuinely loved the journey. The doors that
-                            opened surprised me. Today, I work with TVM Creatives as a Content Writer & Strategist,
+                            opened surprised me. Today, I work with TVM Creatives as a Content & Client Success Manager,
                             handling international clients and helping them generate leads.</p>
 
                         <p>Looking back, I realise: you don’t always have to abandon one path to find another.
@@ -98,24 +98,21 @@
                 <div class="resume-column fade-in delay-1">
                     <h3>Experience</h3>
 
-                    <div class="resume-item">
-                        <h4>Content Writer & Strategist</h4>
-                        <span class="org">TVM Creatives | Part-time</span>
+                    <div class="resume-item reveal reveal-up">
+                        <h4>Content & Client Success Manager</h4>
+                        <span class="org">TVM Creatives</span>
                         <span class="date">Present</span>
                         <ul>
-                            <li>Worked closely with international clients, helping them turn ideas into content that
-                                actually starts conversations and generates leads.</li>
-                            <li>Wrote and refined outreach messages that felt human, not salesy—helping clients source
-                                and convert prospects through LinkedIn.</li>
-                            <li>Collaborated with multiple clients across niches, understanding their voice, audience,
-                                and goals before shaping content strategies around them.</li>
-                            <li>Helped an AI automation client achieve a 10× increase in engagement within one month by
-                                restructuring content and focusing on clarity, storytelling, and audience psychology.
-                            </li>
+                            <li>Drove 500K+ impressions on LinkedIn by building content that consistently performs, not just posts that fill a calendar.</li>
+                            <li>Wrote a viral post for a founder (3,500+ likes, 200+ comments) that dominated LinkedIn conversations for 48 hours, turning both the founder and his co-founder into the talk of the platform.</li>
+                            <li>Turned content into a revenue lever, generating inbound leads and warm opportunities directly through organic posts.</li>
+                            <li>Owned client accounts end-to-end, from strategy and writing to feedback and delivery, ensuring fast execution and zero missed timelines.</li>
+                            <li>Managed multiple clients while maintaining distinct voices, strong positioning, and consistent performance.</li>
+                            <li>Collaborated with internal teams to deliver high-quality content at speed, without compromising on impact.</li>
                         </ul>
                     </div>
 
-                    <div class="resume-item">
+                    <div class="resume-item reveal reveal-up delay-1">
                         <h4>Freelance Content Writer</h4>
                         <span class="org">LinkedIn</span>
                         <span class="date">Present</span>
@@ -130,8 +127,8 @@
                         </ul>
                     </div>
 
-                    <div class="resume-item">
-                        <h4>Member – Communication Support</h4>
+                    <div class="resume-item reveal reveal-up delay-2">
+                        <h4>Member - Communication Support</h4>
                         <span class="org">Rising Youth Network (RYN)</span>
                         <span class="date">Current</span>
                         <ul>
@@ -140,43 +137,13 @@
                         </ul>
                     </div>
 
-                    <div class="resume-item">
-                        <h4>Founder & Instructor</h4>
-                        <span class="org">Mould and Muse</span>
-                        <span class="date">2025</span>
-                        <ul>
-                            <li>Founded and led a two month summer camp focused on helping children communicate better
-                                through writing and speech.</li>
-                            <li>Trained students in structured writing, self expression, vocabulary building, and
-                                confident communication.</li>
-                            <li>Designed lesson plans and learning frameworks that balanced creativity with clarity.
-                            </li>
-                            <li>Handled outreach and promotion using Canva and Instagram to bring the program to life.
-                            </li>
-                        </ul>
-                    </div>
 
-                    <div class="resume-item">
-                        <h4>Founder Art Workshop</h4>
-                        <span class="org">Mould and Muse</span>
-                        <span class="date">2025</span>
-                        <ul>
-                            <li>Conceptualized and executed a two-day art workshop that attracted 45+ participants
-                                through targeted outreach and organic promotion.</li>
-                            <li>Personally handled outreach and communication, converting interest into registrations
-                                within a short timeframe.</li>
-                            <li>Spent two months planning logistics, scheduling, and execution to ensure a smooth,
-                                participant friendly experience.</li>
-                            <li>Designed all creatives and managed Instagram promotion, overseeing the workshop end to
-                                end.</li>
-                        </ul>
-                    </div>
                 </div>
 
                 <!-- Education & Awards -->
                 <div class="resume-column fade-in delay-2">
                     <h3>Education</h3>
-                    <div class="resume-item">
+                    <div class="resume-item reveal reveal-up">
                         <h4>B.Tech in Biotechnology</h4>
                         <span class="org">PDEU, Gandhinagar, Gujarat</span>
                         <span class="date">2025 - 2029</span>
@@ -185,7 +152,7 @@
                     </div>
 
                     <h3>Awards & Public Speaking</h3>
-                    <div class="resume-item">
+                    <div class="resume-item reveal reveal-up delay-1">
                         <h4>National Representation</h4>
                         <span class="org">MCOP-3 (Model Conference of Parties) by WWF India</span>
                         <ul>
@@ -194,7 +161,7 @@
                         </ul>
                     </div>
 
-                    <div class="resume-item">
+                    <div class="resume-item reveal reveal-up delay-2">
                         <h4>Public Speaking Awards</h4>
                         <span class="org">Nirma University & Others</span>
                         <ul>
@@ -264,6 +231,25 @@
                 menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
             });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Once animated, we can stop observing this element
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .fade-in').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
